@@ -1,4 +1,3 @@
-#  Bakery Management System (Laravel Edition)
 <div align="center">
 
 <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=28&duration=3500&pause=1000&color=F9322C&center=true&vCenter=true&width=800&lines=Bakery+Management+System;Built+with+Laravel+13;Clean+Architecture+%26+Scalable+Code;Ecommerce+%7C+POS+%7C+Finance+System" alt="Typing SVG" />
@@ -9,7 +8,7 @@
 
 ---
 
-## ⚙️ Tech Stack & Tools
+## Tech Stack & Tools
 
 <div align="center">
 
@@ -22,7 +21,34 @@
 ![Vite](https://img.shields.io/badge/Vite-Bundler-646CFF?style=flat-square&logo=vite&logoColor=white)
 
 </div>
->  Rebuild modern project menggunakan **Laravel 13** dengan arsitektur scalable & clean code.
+>>>  Rebuild modern project menggunakan **Laravel 13** dengan arsitektur scalable & clean code.
+
+---
+
+## Permasalahan 
+
+Pada tahap awal pengembangan, sistem Bakery yang kami bangun menggunakan PHP Native berjalan dengan cukup baik untuk kebutuhan dasar seperti manajemen produk dan pemesanan sederhana.
+
+Namun, seiring dengan berkembangnya fitur dan meningkatnya kompleksitas sistem, mulai muncul beberapa kendala diantaranya :
+- Struktur kode tidak terorganisir
+Tidak adanya pola arsitektur yang jelas (seperti MVC) membuat kode sulit dipelihara dan dikembangkan.
+- Sulit melakukan scaling fitur
+Penambahan fitur seperti laporan keuangan, multi-role user, dan API menjadi semakin kompleks dan rawan bug.
+- Redundansi kode (code duplication)
+Banyak fungsi yang ditulis berulang karena tidak adanya sistem modular yang baik.
+- Keamanan terbatas
+Harus melakukan handling manual untuk validasi, sanitasi input, dan proteksi seperti CSRF.
+- Manajemen database kurang optimal
+Query ditulis manual tanpa ORM sehingga lebih rentan error dan sulit dikelola dalam jangka panjang.
+- Gaya Code
+Tanpa standar struktur project, setiap developer memiliki gaya masing-masing sehingga sulit sinkronisasi.
+
+---
+
+## Solusi Yang Ditawarkan
+Adapun Solusi yang ditawarkan dari permasalahan tersebut adalah migrasi total ke Laravel, Awalnya refactor akan di arahkan ke Go & React, namun dalam pertimbangan lebih lanjut Sistem akan di refactor ke arah laravel. yang menawarkan Arsitektur MVC (Model-View-Controller)
+Membuat kode lebih terstruktur, rapi, dan mudah dikembangkan. Interaksi database menjadi lebih mudah, aman, dan readable tanpa query manual yang kompleks. Mempermudah pengelolaan endpoint baik untuk web maupun API. build in security otomatis blade template engine, Migration & Seeder
+Memudahkan manajemen database dan setup project untuk tim. serta struktur project yang cukup rapi untuk diselesaikan bersama sama dengan gaya code yang berbeda
 
 ---
 
@@ -280,13 +306,11 @@ GET /api/orders
 ### Payment Gateway
 ![Finaly Order](public/demo/sampleqr&buy.png)
 
-### Admin? ahh it looks like it's already night :)
+### Admin & Database ? ahh it looks like it's already night :)
 
 ##  The Refactor
 
 - **Theikol** - *Initial work* - [github.com/Theikol](https://github.com/Theikol)
-
-##  Acknowledgments
 
 ---
 
@@ -298,4 +322,4 @@ GET /api/orders
 
 ##  Made With Me
 
-> "Good code is like good bread — simple, clean, and satisfying." 🥖✨
+> "Good code is like good bread - simple, clean, and satisfying." 🥖✨
