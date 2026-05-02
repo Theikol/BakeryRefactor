@@ -4,7 +4,7 @@
         <h1 class="text-2xl font-bold text-gray-900 dark:text-white">
             <i class="fas fa-box mr-2 text-amber-600"></i> Manajemen Produk
         </h1>
-        <a href="{{ route('products.create') }}" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-lg font-semibold transition">
+        <a href="{{ route('admin.products.create') }}" class="bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-lg font-semibold transition">
             <i class="fas fa-plus mr-2"></i> Tambah Produk
         </a>
     </div>
@@ -34,7 +34,7 @@
                     <tr>
                         <td class="px-6 py-4 whitespace-nowrap">
                             @if($product->image)
-                                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="w-12 h-12 object-cover rounded-lg">
+                                <img src="{{ asset($product->image) }}" alt="{{ $product->name }}" class="w-12 h-12 object-cover rounded-lg">
                             @else
                                 <div class="w-12 h-12 bg-gray-200 dark:bg-gray-600 rounded-lg flex items-center justify-center">
                                     <i class="fas fa-image text-gray-400"></i>
@@ -71,13 +71,13 @@
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                             <div class="flex space-x-2">
-                                <a href="{{ route('products.show', $product) }}" class="text-blue-600 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300">
+                                <a href="{{ route('admin.products.show', $product) }}" class="text-blue-600 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300">
                                     <i class="fas fa-eye"></i>
                                 </a>
-                                <a href="{{ route('products.edit', $product) }}" class="text-amber-600 hover:text-amber-900 dark:text-amber-400 dark:hover:text-amber-300">
+                                <a href="{{ route('admin.products.edit', $product) }}" class="text-amber-600 hover:text-amber-900 dark:text-amber-400 dark:hover:text-amber-300">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <form action="{{ route('products.destroy', $product) }}" method="POST" class="inline" onsubmit="return confirm('Yakin ingin menghapus produk ini?')">
+                                <form action="{{ route('admin.products.destroy', $product) }}" method="POST" class="inline" onsubmit="return confirm('Yakin ingin menghapus produk ini?')">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="text-red-600 hover:text-red-900 dark:text-red-400 dark:hover:text-red-300">

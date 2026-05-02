@@ -64,7 +64,13 @@ class CartController extends Controller
 
         session()->put('cart', $cart);
 
-        return redirect()->back()->with('success', 'Produk ditambahkan ke keranjang!');
+        return response()->json([
+            'success' => true,
+            'message' => "{$product->name} Successfully added to cart!",
+            'product' => $cart[$id],
+            'cart_count' => $this->calculateCartCount($cart),
+            'cart_total' => $this->cartTotal($cart),
+        ]);
     }
 
     // ─── Update Qty ───────────────────────────────────────────
@@ -137,7 +143,10 @@ class CartController extends Controller
 
         // Cek stock
         if ($product->stock < $qty) {
-            return redirect()->back()->with('error', "Stock {$product->name} tidak cukup! Tersedia: {$product->stock}");
+            return response()->json([
+                'success' => false,
+                'message' => "Stock {$product->name} tidak cukup! Tersedia: {$product->stock}"
+            ], 400);
         }
 
         session()->put('buy_now', [
@@ -150,7 +159,11 @@ class CartController extends Controller
             ],
         ]);
 
-        return redirect()->route('checkout.index', ['mode' => 'buy_now']);
+        return response()->json([
+            'success' => true,
+            'message' => "Lanjut ke checkout...",
+            'redirect' => route('checkout.index', ['mode' => 'buy_now'])
+        ]);
     }
 
     // ─── Checkout Page ────────────────────────────────────────
@@ -195,7 +208,7 @@ class CartController extends Controller
             'customer_email'   => 'required|email|max:100',
             'customer_phone'   => 'required|string|max:20',
             'customer_address' => 'required|string',
-            'payment_method'   => 'required|in:transfer_bca,transfer_bni,transfer_mandiri,cod',
+            'payment_method'   => 'required|in:transfer_bca,transfer_bni,transfer_mandiri,cod,qris',
             'mode'             => 'required|in:cart,buy_now',
         ]);
 

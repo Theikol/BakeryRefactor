@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -16,7 +15,7 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('products.create');
+        return view('admin.products.create');
     }
 
     public function store(Request $request)
@@ -34,17 +33,20 @@ class ProductController extends Controller
         $data = $request->all();
 
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('products', 'public');
+            $file = $request->file('image');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('images'), $filename);
+            $data['image'] = 'images/' . $filename;
         }
 
         Product::create($data);
 
-        return redirect()->route('products.index')->with('success', 'Produk berhasil ditambahkan!');
+        return redirect()->route('dashboard')->with('success', 'Produk berhasil ditambahkan!');
     }
 
     public function show(Product $product)
     {
-        return view('products.show', compact('product'));
+        return view('admin.products.show', compact('product'));
     }
 
     public function edit(Product $product)
@@ -68,26 +70,36 @@ class ProductController extends Controller
 
         if ($request->hasFile('image')) {
             // Hapus gambar lama jika ada
-            if ($product->image && Storage::disk('public')->exists($product->image)) {
-                Storage::disk('public')->delete($product->image);
+            if ($product->image && file_exists(public_path($product->image))) {
+                unlink(public_path($product->image));
             }
-            $data['image'] = $request->file('image')->store('products', 'public');
+            $file = $request->file('image');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('images'), $filename);
+            $data['image'] = 'images/' . $filename;
         }
 
         $product->update($data);
 
-        return redirect()->route('products.index')->with('success', 'Produk berhasil diupdate!');
+        return redirect()->route('dashboard')->with('success', 'Produk berhasil diupdate!');
     }
 
     public function destroy(Product $product)
     {
-        // Hapus gambar jika ada
-        if ($product->image && Storage::disk('public')->exists($product->image)) {
-            Storage::disk('public')->delete($product->image);
+        try {
+            // Hapus gambar jika ada
+            if ($product->image && file_exists(public_path($product->image))) {
+                unlink(public_path($product->image));
+            }
+
+            $product->delete();
+
+            return redirect()->route('dashboard')->with('success', 'Produk berhasil dihapus!');
+        } catch (\Illuminate\Database\QueryException $e) {
+            if ($e->getCode() == '23000') {
+                return redirect()->route('dashboard')->with('error', 'Tidak bisa menghapus produk ini karena masih ada pesanan yang menggunakan produk ini. Silakan hapus pesanannya terlebih dahulu.');
+            }
+            throw $e;
         }
-
-        $product->delete();
-
-        return redirect()->route('products.index')->with('success', 'Produk berhasil dihapus!');
     }
 }

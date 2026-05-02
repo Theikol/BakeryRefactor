@@ -29,7 +29,7 @@
                 <!-- Gambar Produk -->
                 <div>
                     @if($product->image)
-                        <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="w-full h-64 object-cover rounded-lg border border-gray-300 dark:border-gray-600">
+                        <img src="{{ asset($product->image) }}" alt="{{ $product->name }}" class="w-full h-64 object-cover rounded-lg border border-gray-300 dark:border-gray-600">
                     @else
                         <div class="w-full h-64 bg-gray-200 dark:bg-gray-600 rounded-lg flex items-center justify-center">
                             <i class="fas fa-image text-6xl text-gray-400"></i>

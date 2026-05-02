@@ -51,12 +51,14 @@ class DashboardController extends Controller
             ->get()
             ->keyBy('month');
 
-        return view('dashboard', compact(
-            'stats',
-            'recentOrders',
-            'bestSellers',
-            'monthlySales'
-        ));
+       return view('dashboard', [
+    'orders' => Order::all(),
+    'products' => Product::all(),
+    'stats' => $stats,
+    'recentOrders' => $recentOrders,
+    'bestSellers' => $bestSellers,
+    'monthlySales' => $monthlySales,
+]);
     }
 
     /**

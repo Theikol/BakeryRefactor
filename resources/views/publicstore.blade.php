@@ -52,22 +52,12 @@
        class="flex-1 text-center border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 py-2 rounded hover:bg-gray-50 dark:hover:bg-gray-700 transition text-sm">
         View
     </a>
-    <form action="{{ route('cart.add') }}" method="POST" class="flex-1">
-        @csrf
-        <input type="hidden" name="product_id" value="{{ $p->id }}">
-        <input type="hidden" name="qty" value="1">
-        <button type="submit" class="w-full border border-amber-600 text-amber-600 hover:bg-amber-50 dark:hover:bg-amber-900/20 py-2 rounded transition text-sm">
-            <i class="fas fa-shopping-cart mr-1"></i>
-        </button>
-    </form>
-    <form action="{{ route('cart.buy-now') }}" method="POST" class="flex-1">
-        @csrf
-        <input type="hidden" name="product_id" value="{{ $p->id }}">
-        <input type="hidden" name="qty" value="1">
-        <button type="submit" class="w-full bg-amber-600 hover:bg-amber-700 text-white py-2 rounded transition text-sm">
-            Beli
-        </button>
-    </form>
+    <button onclick="addToCart({{ $p->id }}, 1)" class="flex-1 border border-amber-600 text-amber-600 hover:bg-amber-50 dark:hover:bg-amber-900/20 py-2 rounded transition text-sm">
+        <i class="fas fa-shopping-cart mr-1"></i>
+    </button>
+    <button onclick="buyNow({{ $p->id }}, 1)" class="flex-1 bg-amber-600 hover:bg-amber-700 text-white py-2 rounded transition text-sm">
+        Beli
+    </button>
 </div>
                     </div>
                 @endforeach
@@ -138,25 +128,15 @@
                 </a>
 
                 {{-- Keranjang --}}
-                <form action="{{ route('cart.add') }}" method="POST" class="col-span-1">
-                    @csrf
-                    <input type="hidden" name="product_id" value="{{ $product->id }}">
-                    <input type="hidden" name="qty" value="1">
-                    <button type="submit" class="w-full border border-amber-500 text-amber-600 dark:text-amber-400 py-2 rounded-lg hover:bg-amber-50 dark:hover:bg-amber-900/20 transition text-xs font-medium">
-                        <i class="fas fa-shopping-cart block mb-0.5"></i>
-                    </button>
-                </form>
+                <button onclick="addToCart({{ $product->id }}, 1)" class="col-span-1 w-full border border-amber-500 text-amber-600 dark:text-amber-400 py-2 rounded-lg hover:bg-amber-50 dark:hover:bg-amber-900/20 transition text-xs font-medium">
+                    <i class="fas fa-shopping-cart block mb-0.5"></i>
+                </button>
 
                 {{-- Beli --}}
-                <form action="{{ route('cart.buy-now') }}" method="POST" class="col-span-1">
-                    @csrf
-                    <input type="hidden" name="product_id" value="{{ $product->id }}">
-                    <input type="hidden" name="qty" value="1">
-                    <button type="submit" class="w-full bg-amber-600 hover:bg-amber-700 text-white py-2 rounded-lg transition text-xs font-medium">
-                        <i class=""></i>
-                        Checkout
-                    </button>
-                </form>
+                <button onclick="buyNow({{ $product->id }}, 1)" class="col-span-1 w-full bg-amber-600 hover:bg-amber-700 text-white py-2 rounded-lg transition text-xs font-medium">
+                    <i class=""></i>
+                    Checkout
+                </button>
             </div>
         </div>
     @empty

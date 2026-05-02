@@ -12,6 +12,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\OrderController;
 
 // Models
 use App\Models\Order;
@@ -72,7 +73,10 @@ Route::post('/orders/update-status/{id}', function (Request $request, $id) {
 // 📦 PRODUCTS & 👤 CUSTOMERS
 //////////////////////////////////////////////////
 
-Route::resource('products', ProductController::class)->middleware('auth');
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('products', ProductController::class);
+});
+
 Route::get('/customers', [CustomerController::class, 'index'])->name('customers.index');
 
 //////////////////////////////////////////////////
@@ -108,6 +112,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+Route::delete('/orders/{id}', [OrderController::class, 'destroy'])
+    ->name('orders.delete');
+    Route::patch('/orders/{id}/update-status', [OrderController::class, 'updateStatus'])->name('orders.updateStatus');
+    Route::post('/orders/update-status/{id}', function (Request $request, $id) {
+        $order = Order::findOrFail($id);
+        $order->status = $request->status;
+        $order->save();
+
+        return response()->json(['success' => true]);
+    })->name('order.updateStatus');
 });
 
 //////////////////////////////////////////////////

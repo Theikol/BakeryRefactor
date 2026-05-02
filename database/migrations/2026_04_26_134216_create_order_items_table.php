@@ -15,7 +15,7 @@ return new class extends Migration
         $table->id();
         // Foreign keys langsung direlasikan ke tabel orders dan products
         $table->foreignId('order_id')->constrained()->cascadeOnDelete();
-        $table->foreignId('product_id')->constrained();
+        $table->foreignId('product_id')->constrained()->cascadeOnDelete();
         $table->integer('quantity');
         $table->integer('price');
         $table->integer('subtotal');

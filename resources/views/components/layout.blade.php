@@ -26,6 +26,7 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-200 font-sans">
     
@@ -86,5 +87,44 @@
     </footer>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    {{-- 🛒 CART MODAL --}}
+    <div id="cart-modal" class="hidden fixed inset-0 bg-black/50 z-[100] flex items-center justify-center">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-md w-full mx-4 p-6 modal-content">
+            {{-- Close button --}}
+            <button onclick="closeCartModal()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 dark:hover:text-gray-300">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+
+            {{-- Content --}}
+            <div class="text-center mb-6">
+                <i class="fas fa-check-circle text-4xl text-green-500 mb-4"></i>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white">Ditambahkan ke Keranjang!</h3>
+            </div>
+
+            <div class="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 mb-6">
+                <img src="" alt="" class="modal-product-image w-full h-40 object-cover rounded-md mb-4">
+                <h4 class="modal-product-name font-bold text-gray-900 dark:text-white mb-2">Product Name</h4>
+                <div class="flex justify-between items-center text-sm mb-2">
+                    <span class="text-gray-600 dark:text-gray-400">Harga:</span>
+                    <span class="modal-product-price font-semibold text-amber-600">Rp 0</span>
+                </div>
+                <div class="flex justify-between items-center text-sm">
+                    <span class="text-gray-600 dark:text-gray-400">Jumlah:</span>
+                    <span class="modal-product-qty font-semibold text-gray-900 dark:text-white">1x</span>
+                </div>
+            </div>
+
+            {{-- Actions --}}
+            <div class="flex gap-3">
+                <button onclick="closeCartModal()" class="flex-1 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 py-2 rounded-md hover:bg-gray-50 dark:hover:bg-gray-700 transition font-medium">
+                    Lanjut Belanja
+                </button>
+                <a href="{{ route('cart') }}" class="flex-1 bg-amber-600 hover:bg-amber-700 text-white py-2 rounded-md transition font-medium text-center">
+                    Lihat Keranjang
+                </a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
