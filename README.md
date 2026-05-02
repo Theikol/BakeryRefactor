@@ -1,58 +1,187 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Bakery Laravel
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplikasi web toko roti modern yang dibangun dengan Laravel 13. Proyek ini adalah refactor dari [github.com/Theikol/Bakery](https://github.com/Theikol/Bakery) dengan arsitektur yang lebih profesional dan fitur yang lebih lengkap.
 
-## About Laravel
+## 🚀 Fitur Utama
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### 🏪 Toko Online
+- **Katalog Produk**: Tampilan produk dengan pencarian dan filter
+- **Keranjang Belanja**: Sistem keranjang dengan session management
+- **Checkout**: Proses checkout yang aman dan mudah
+- **Upload Pembayaran**: Sistem upload bukti pembayaran
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 📊 Dashboard Admin
+- **Statistik Real-time**: Pendapatan hari ini, jumlah pesanan, produk aktif
+- **Pertumbuhan Pendapatan**: Perhitungan pertumbuhan bulanan
+- **Pesanan Terbaru**: 10 pesanan terakhir dengan detail
+- **Produk Terlaris**: Top 5 produk berdasarkan penjualan
+- **Grafik Penjualan**: Data penjualan per bulan
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 👥 Manajemen
+- **Produk**: CRUD lengkap dengan upload gambar
+- **Pesanan**: Update status pesanan (pending → paid → completed)
+- **Pelanggan**: Daftar pelanggan dengan informasi lengkap
+- **Laporan**: Laporan penjualan dan inventori
 
-## Learning Laravel
+### 🔐 Sistem Autentikasi
+- Login/Register menggunakan Laravel Breeze
+- Middleware untuk proteksi route admin
+- Profile management
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🛠️ Tech Stack
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- **Backend**: Laravel 13 (PHP 8.3+)
+- **Database**: MySQL dengan Eloquent ORM
+- **Frontend**: Blade Templates + Tailwind CSS + Alpine.js
+- **Build Tool**: Vite
+- **Icons**: Lucide Icons
+- **Testing**: Pest PHP
+- **Authentication**: Laravel Breeze
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+## 📋 Persyaratan Sistem
 
-## Agentic Development
+- PHP 8.3 atau lebih tinggi
+- Composer
+- Node.js & NPM
+- MySQL 8.0+
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+## 🚀 Instalasi & Setup
 
+### 1. Clone Repository
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+git clone <repository-url>
+cd BakeryLaravel
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+### 2. Install Dependencies
+```bash
+composer install
+npm install
+```
 
-## Contributing
+### 3. Environment Setup
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Konfigurasi database di `.env`:
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=bakery_laravel
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
+```
 
-## Code of Conduct
+### 4. Database Setup
+```bash
+php artisan migrate
+php artisan db:seed  # Jika ada seeder
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 5. Build Assets
+```bash
+npm run build
+# atau untuk development:
+npm run dev
+```
 
-## Security Vulnerabilities
+### 6. Jalankan Aplikasi
+```bash
+# Menggunakan script setup otomatis
+composer run setup
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# Atau jalankan manual
+php artisan serve
+```
 
-## License
+## 🏃‍♂️ Menjalankan Aplikasi
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Development Mode
+```bash
+composer run dev
+```
+Ini akan menjalankan:
+- Laravel server di `http://localhost:8000`
+- Queue worker untuk background jobs
+- Vite dev server untuk hot reload
+
+### Production Build
+```bash
+npm run build
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+```
+
+## 📁 Struktur Proyek
+
+```
+BakeryLaravel/
+├── app/
+│   ├── Http/Controllers/     # Controllers
+│   ├── Models/              # Eloquent Models
+│   └── View/Components/     # Blade Components
+├── database/
+│   ├── migrations/          # Database migrations
+│   └── seeders/            # Database seeders
+├── public/                  # Public assets
+├── resources/
+│   ├── css/                # Stylesheets
+│   ├── js/                 # JavaScript
+│   └── views/              # Blade templates
+├── routes/
+│   └── web.php             # Route definitions
+├── storage/                 # File storage
+└── tests/                  # Test files
+```
+
+## 🧪 Testing
+
+```bash
+# Jalankan semua test
+php artisan test
+
+# Dengan coverage
+php artisan test --coverage
+```
+
+## 📊 Perbedaan dengan Versi Asli
+
+Proyek ini adalah refactor dari [github.com/Theikol/Bakery](https://github.com/Theikol/Bakery) dengan perbaikan:
+
+| Aspek | Versi Asli | Versi Refactor |
+|-------|------------|----------------|
+| **Arsitektur** | PHP Procedural | Laravel MVC Framework |
+| **Database** | SQL Langsung | Eloquent ORM |
+| **Frontend** | Vanilla JS + CSS | Tailwind CSS + Alpine.js |
+| **Authentication** | Custom Auth | Laravel Breeze |
+| **Testing** | Tidak ada | Pest PHP |
+| **Dashboard** | Basic | Advanced Analytics |
+| **File Management** | Manual | Laravel Storage |
+| **Deployment** | Manual | Automated Scripts |
+
+## 🤝 Kontribusi
+
+1. Fork repository
+2. Buat branch fitur (`git checkout -b feature/AmazingFeature`)
+3. Commit perubahan (`git commit -m 'Add some AmazingFeature'`)
+4. Push ke branch (`git push origin feature/AmazingFeature`)
+5. Buat Pull Request
+
+## 📝 Lisensi
+
+Proyek ini menggunakan lisensi MIT. Lihat file `LICENSE` untuk detail lebih lanjut.
+
+## 👨‍💻 Pengembang
+
+- **Theikol** - *Initial work* - [github.com/Theikol](https://github.com/Theikol)
+
+## 🙏 Acknowledgments
+
+- [Laravel Framework](https://laravel.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Alpine.js](https://alpinejs.dev/)
+- [Laravel Breeze](https://laravel.com/docs/starter-kits#laravel-breeze)

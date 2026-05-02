@@ -2,7 +2,7 @@
     "$schema": "https://getcomposer.org/schema.json",
     "name": "laravel/laravel",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "Aplikasi web toko roti modern yang dibangun dengan Laravel 13. Refactor dari github.com/Theikol/Bakery dengan arsitektur MVC profesional.",
     "keywords": [
         "laravel",
         "framework"
