@@ -1,154 +1,32 @@
-# Bakery Laravel
+#  Bakery Management System (Laravel Edition)
+<div align="center">
 
-Aplikasi web toko roti modern yang dibangun dengan Laravel 13. Proyek ini adalah refactor dari [github.com/Theikol/Bakery](https://github.com/Theikol/Bakery) dengan arsitektur yang lebih profesional dan fitur yang lebih lengkap.
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=28&duration=3500&pause=1000&color=F9322C&center=true&vCenter=true&width=800&lines=Bakery+Management+System;Built+with+Laravel+13;Clean+Architecture+%26+Scalable+Code;Ecommerce+%7C+POS+%7C+Finance+System" alt="Typing SVG" />
 
-## 🚀 Fitur Utama
+<br/>
 
-### 🏪 Toko Online
-- **Katalog Produk**: Tampilan produk dengan pencarian dan filter
-- **Keranjang Belanja**: Sistem keranjang dengan session management
-- **Checkout**: Proses checkout yang aman dan mudah
-- **Upload Pembayaran**: Sistem upload bukti pembayaran
+</div>
 
-### 📊 Dashboard Admin
-- **Statistik Real-time**: Pendapatan hari ini, jumlah pesanan, produk aktif
-- **Pertumbuhan Pendapatan**: Perhitungan pertumbuhan bulanan
-- **Pesanan Terbaru**: 10 pesanan terakhir dengan detail
-- **Produk Terlaris**: Top 5 produk berdasarkan penjualan
-- **Grafik Penjualan**: Data penjualan per bulan
+---
 
-### 👥 Manajemen
-- **Produk**: CRUD lengkap dengan upload gambar
-- **Pesanan**: Update status pesanan (pending → paid → completed)
-- **Pelanggan**: Daftar pelanggan dengan informasi lengkap
-- **Laporan**: Laporan penjualan dan inventori
+## ⚙️ Tech Stack & Tools
 
-### 🔐 Sistem Autentikasi
-- Login/Register menggunakan Laravel Breeze
-- Middleware untuk proteksi route admin
-- Profile management
+<div align="center">
 
-## 🛠️ Tech Stack
+![Laravel](https://img.shields.io/badge/Laravel-13-FF2D20?style=flat-square&logo=laravel&logoColor=white)
+![PHP](https://img.shields.io/badge/PHP-8.x-777BB4?style=flat-square&logo=php&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?style=flat-square&logo=mysql&logoColor=white)
+![Blade](https://img.shields.io/badge/Blade-Template-F55247?style=flat-square&logo=laravel&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![Vite](https://img.shields.io/badge/Vite-Bundler-646CFF?style=flat-square&logo=vite&logoColor=white)
 
-- **Backend**: Laravel 13 (PHP 8.3+)
-- **Database**: MySQL dengan Eloquent ORM
-- **Frontend**: Blade Templates + Tailwind CSS + Alpine.js
-- **Build Tool**: Vite
-- **Icons**: Lucide Icons
-- **Testing**: Pest PHP
-- **Authentication**: Laravel Breeze
+</div>
+>  Rebuild modern project menggunakan **Laravel 13** dengan arsitektur scalable & clean code.
 
-## 📋 Persyaratan Sistem
+---
 
-- PHP 8.3 atau lebih tinggi
-- Composer
-- Node.js & NPM
-- MySQL 8.0+
-
-## 🚀 Instalasi & Setup
-
-### 1. Clone Repository
-```bash
-git clone <repository-url>
-cd BakeryLaravel
-```
-
-### 2. Install Dependencies
-```bash
-composer install
-npm install
-```
-
-### 3. Environment Setup
-```bash
-cp .env.example .env
-php artisan key:generate
-```
-
-Konfigurasi database di `.env`:
-```env
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=bakery_laravel
-DB_USERNAME=your_username
-DB_PASSWORD=your_password
-```
-
-### 4. Database Setup
-```bash
-php artisan migrate
-php artisan db:seed  # Jika ada seeder
-```
-
-### 5. Build Assets
-```bash
-npm run build
-# atau untuk development:
-npm run dev
-```
-
-### 6. Jalankan Aplikasi
-```bash
-# Menggunakan script setup otomatis
-composer run setup
-
-# Atau jalankan manual
-php artisan serve
-```
-
-## 🏃‍♂️ Menjalankan Aplikasi
-
-### Development Mode
-```bash
-composer run dev
-```
-Ini akan menjalankan:
-- Laravel server di `http://localhost:8000`
-- Queue worker untuk background jobs
-- Vite dev server untuk hot reload
-
-### Production Build
-```bash
-npm run build
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
-```
-
-## 📁 Struktur Proyek
-
-```
-BakeryLaravel/
-├── app/
-│   ├── Http/Controllers/     # Controllers
-│   ├── Models/              # Eloquent Models
-│   └── View/Components/     # Blade Components
-├── database/
-│   ├── migrations/          # Database migrations
-│   └── seeders/            # Database seeders
-├── public/                  # Public assets
-├── resources/
-│   ├── css/                # Stylesheets
-│   ├── js/                 # JavaScript
-│   └── views/              # Blade templates
-├── routes/
-│   └── web.php             # Route definitions
-├── storage/                 # File storage
-└── tests/                  # Test files
-```
-
-## 🧪 Testing
-
-```bash
-# Jalankan semua test
-php artisan test
-
-# Dengan coverage
-php artisan test --coverage
-```
-
-## 📊 Perbedaan dengan Versi Asli
+## Perbedaan dengan Versi Asli
 
 Proyek ini adalah refactor dari [github.com/Theikol/Bakery](https://github.com/Theikol/Bakery) dengan perbaikan:
 
@@ -156,32 +34,268 @@ Proyek ini adalah refactor dari [github.com/Theikol/Bakery](https://github.com/T
 |-------|------------|----------------|
 | **Arsitektur** | PHP Procedural | Laravel MVC Framework |
 | **Database** | SQL Langsung | Eloquent ORM |
-| **Frontend** | Vanilla JS + CSS | Tailwind CSS + Alpine.js |
+| **Frontend** | JS & PHP Native | Tailwind CSS + Alpine.js |
 | **Authentication** | Custom Auth | Laravel Breeze |
 | **Testing** | Tidak ada | Pest PHP |
 | **Dashboard** | Basic | Advanced Analytics |
 | **File Management** | Manual | Laravel Storage |
 | **Deployment** | Manual | Automated Scripts |
 
-## 🤝 Kontribusi
+---
 
-1. Fork repository
-2. Buat branch fitur (`git checkout -b feature/AmazingFeature`)
-3. Commit perubahan (`git commit -m 'Add some AmazingFeature'`)
-4. Push ke branch (`git push origin feature/AmazingFeature`)
-5. Buat Pull Request
+##  Preview
 
-## 📝 Lisensi
+![Laravel](https://img.shields.io/badge/Laravel-13-red?style=for-the-badge\&logo=laravel)
+![PHP](https://img.shields.io/badge/PHP-8.x-blue?style=for-the-badge\&logo=php)
+![MySQL](https://img.shields.io/badge/MySQL-Database-orange?style=for-the-badge\&logo=mysql)
 
-Proyek ini menggunakan lisensi MIT. Lihat file `LICENSE` untuk detail lebih lanjut.
+---
 
-## 👨‍💻 Pengembang
+##  Tentang Project
+
+**Bakery Management System** adalah sistem terintegrasi untuk:
+
+*  Ecommerce (Order System)
+*  Management Produk
+*  Laporan Keuangan
+*  Company Profile
+
+Project ini merupakan hasil **refactor & rebuild total** dari versi native PHP menjadi **Laravel Framework**.
+
+---
+
+##  Team Members
+
+| Nama                  | Role                     |
+| --------------------- | ------------------------ |
+| Adrian Haikal Akbar   | Database Engineer        |
+| Amanda Putri Kusuma   | Documentation Specialist |
+| Chyntia Assyifa       | UI/UX Designer           |
+| Dwi Fitriyanti        | QA Engineer              |
+| Fajar Sidik           | Project Manager          |
+| Nur Alya Syahrani     | Frontend Developer       |
+| Ricky Prayoga Saputra | Backend Developer        |
+
+---
+
+##  Struktur Folder Laravel
+
+```
+BakeryRefactor/
+├── app/
+│   ├── Http/
+│   │   ├── Controllers/
+│   │   │   ├── ProductController.php
+│   │   │   ├── CartController.php
+│   │   │   └── OrderController.php
+│   ├── Models/
+│   │   ├── Product.php
+│   │   ├── Order.php
+│   │   └── OrderItem.php
+│
+├── database/
+│   ├── migrations/
+│   ├── seeders/
+│   │   ├── DatabaseSeeder.php
+│   │   └── ProductSeeder.php
+│
+├── routes/
+│   ├── web.php
+│   └── api.php
+│
+├── resources/
+│   ├── views/
+│   │   ├── home.blade.php
+│   │   ├── checkout.blade.php
+│   │   └── components/
+│
+├── public/
+├── config/
+└── .env
+```
+
+---
+
+##  Instalasi & Setup
+
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/your-repo/bakery.git
+cd bakery
+```
+
+### 2. Install Dependency
+
+```bash
+composer install
+npm install && npm run dev
+```
+
+### 3. Setup Environment
+
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+### 4. Konfigurasi Database
+
+Edit file `.env`:
+
+```
+DB_DATABASE=bakery
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+### 5. Migration & Seeder
+
+```bash
+php artisan migrate
+php artisan db:seed
+```
+
+### Contoh Seeder
+
+```php
+class ProductSeeder extends Seeder
+{
+    public function run()
+    {
+        Product::create([
+            'name' => 'Croissant',
+            'price' => 15000,
+            'category' => 'Pastry'
+        ]);
+    }
+}
+```
+
+### 6. Jalankan Server
+
+```bash
+composer run dev
+```
+
+---
+
+##  Fitur Utama
+
+###  Frontend
+
+* Responsive UI
+* Product Grid + Image
+* Search & Filter
+* Modal Detail
+* Cart (Session)
+* Checkout System
+
+###  Backend Laravel
+
+* REST API
+* MVC Architecture
+* Eloquent ORM
+* Validation
+* Secure Session
+
+---
+
+##  API (Laravel)
+
+### Product
+
+```
+GET /api/products
+GET /api/products/{id}
+```
+
+### Cart
+
+```
+POST /api/cart/add
+POST /api/cart/remove
+GET /api/cart
+```
+
+### Order
+
+```
+POST /api/checkout
+GET /api/orders
+```
+
+---
+
+##  UI Design System
+
+| Role      | Color   |
+| --------- | ------- |
+| Primary   | #d4a574 |
+| Secondary | #8b4513 |
+| Light     | #f5e6d3 |
+| Dark      | #2c1810 |
+
+---
+
+##  Security
+
+* CSRF Protection (Laravel)
+* Validation Rules
+* Eloquent ORM (anti SQL Injection)
+* Session Secure Handling
+
+---
+
+##  Roadmap
+
+* [ ] Authentication (Laravel Breeze / Jetstream)
+* [ ] Admin Dashboard
+* [ ] Payment Gateway
+* [ ] Email Notification
+* [ ] Order Tracking
+
+---
+
+## Application Preview
+
+### Home
+![UI](public/demo/welcome.png)
+
+### Products Page
+![Products](public/demo/products.png)
+
+### Prieview Product
+![Products](public/demo/prprod.png)
+
+### Cart
+![Cart](public/demo/cart.png)
+
+### Process
+![Cart Process](public/demo/cartproc.png)
+
+### Ceckout
+![Product Checkout](public/demo/checkout.png)
+
+### Payment Gateway
+![Finaly Order](public/demo/sampleqr&buy.png)
+
+### Admin? ahh it looks like it's already night :)
+
+##  The Refactor
 
 - **Theikol** - *Initial work* - [github.com/Theikol](https://github.com/Theikol)
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
-- [Laravel Framework](https://laravel.com/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Alpine.js](https://alpinejs.dev/)
-- [Laravel Breeze](https://laravel.com/docs/starter-kits#laravel-breeze)
+---
+
+##  Contact
+
+ [ikoladrian@gmail.com](mailto:ikoladrian@gmail.com)
+
+---
+
+##  Made With Me
+
+> "Good code is like good bread — simple, clean, and satisfying." 🥖✨

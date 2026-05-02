@@ -148,8 +148,8 @@
                 <label class="flex items-center gap-4 p-4 border-2 border-gray-200 dark:border-gray-600 rounded-xl cursor-pointer hover:border-amber-400 transition has-[:checked]:border-amber-500 has-[:checked]:bg-amber-50 dark:has-[:checked]:bg-amber-900/20">
                     <input type="radio" name="payment_method" value="qris" class="accent-amber-600">
                    <div class="flex items-center gap-3 flex-grow">
-        <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center flex-shrink-0">
-            <i class="fas fa-qrcode text-white text-sm"></i>
+        <div class="w-10 h-10 bg-white border border-gray-300 rounded-lg flex items-center justify-center flex-shrink-0">
+            <i class="fas fa-qrcode text-black text-sm"></i>
         </div>
 
         <div>
