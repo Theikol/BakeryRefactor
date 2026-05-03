@@ -19,6 +19,11 @@
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
 ![Vite](https://img.shields.io/badge/Vite-Bundler-646CFF?style=flat-square&logo=vite&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-F7931E?style=flat-square&logo=scikit-learn&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-Array-013243?style=flat-square&logo=numpy&logoColor=white)
+![Colorama](https://img.shields.io/badge/Colorama-Terminal-000000?style=flat-square&logo=python&logoColor=white)
+![python-Levenshtein](https://img.shields.io/badge/python--Levenshtein-String%20Matching-3776AB?style=flat-square&logo=python&logoColor=white)
+![tabulate](https://img.shields.io/badge/tabulate-Table%20Formatter-4EAA25?style=flat-square&logo=python&logoColor=white)
 
 </div>
 >>>  Rebuild modern project menggunakan **Laravel 13** dengan arsitektur scalable & clean code.
