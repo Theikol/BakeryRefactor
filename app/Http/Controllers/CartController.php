@@ -385,4 +385,32 @@ class CartController extends Controller
             'redirect' => route('store.index'),
         ]);
     }
+
+    // ─── Track Order ───────────────────────────────────
+
+    public function trackOrder()
+    {
+        return view('track-order', ['order' => null]);
+    }
+
+    public function searchOrder(Request $request)
+    {
+        $request->validate([
+            'order_code' => 'required|string|max:50',
+            'phone' => 'required|string|max:20',
+        ]);
+
+        $order = Order::where('order_number', $request->order_code)
+            ->where('customer_phone', $request->phone)
+            ->with('items.product')
+            ->first();
+
+        if (!$order) {
+            return back()
+                ->with('error', 'Pesanan tidak ditemukan. Silakan periksa kembali nomor pesanan dan nomor HP.')
+                ->withInput();
+        }
+
+        return view('track-order', compact('order'));
+    }
 }

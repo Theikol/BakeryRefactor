@@ -234,17 +234,24 @@
                                             <select class="text-xs px-3 py-2 rounded-full font-semibold
                                                 {{ $order->status == 'paid' ? 'bg-green-100 text-green-700' : 
                                                    ($order->status == 'pending' ? 'bg-yellow-100 text-yellow-700' : 
-                                                    ($order->status == 'completed' ? 'bg-blue-100 text-blue-700' : 
-                                                     'bg-red-100 text-red-700')) }}"
+                                                    ($order->status == 'completed' ? 'bg-blue-100 text-blue-700' :
+                                                     ($order->status == 'processing' ? 'bg-green-100 text-green-700' :
+                                                      ($order->status == 'waiting_confirmation' ? 'bg-blue-100 text-blue-700' :
+                                                       'bg-red-100 text-red-700')))) }}"
                                                 onchange="updateOrderStatus({{ $order->id }}, this.value)">
                                                 <option value="pending" {{ $order->status == 'pending' ? 'selected' : '' }}>Pending</option>
-                                                <option value="paid" {{ $order->status == 'paid' ? 'selected' : '' }}>Paid</option>
-                                                <option value="completed" {{ $order->status == 'completed' ? 'selected' : '' }}>Completed</option>
-                                                <option value="cancelled" {{ $order->status == 'cancelled' ? 'selected' : '' }}>Cancelled</option>
+                                                <option value="waiting_confirmation" {{ $order->status == 'waiting_confirmation' ? 'selected' : '' }}>Menunggu Konfirmasi</option>
+                                                <option value="processing" {{ $order->status == 'processing' ? 'selected' : '' }}>Diproses</option>
+                                                <option value="paid" {{ $order->status == 'paid' ? 'selected' : '' }}>Sudah Dibayar</option>
+                                                <option value="completed" {{ $order->status == 'completed' ? 'selected' : '' }}>Selesai</option>
+                                                <option value="cancelled" {{ $order->status == 'cancelled' ? 'selected' : '' }}>Dibatalkan</option>
                                             </select>
                                         </td>
-                                        <td class="px-6 py-4 text-right">
-                                            <button onclick="deleteOrder({{ $order->id }})" class="text-red-600 hover:text-red-800 text-xs font-semibold">
+                                        <td class="px-6 py-4 text-right space-x-2">
+                                            <button onclick="viewOrderDetail({{ $order->id }})" class="text-blue-600 hover:text-blue-800 text-xs font-semibold inline-block">
+                                                <i class="fas fa-eye mr-1"></i> Lihat
+                                            </button>
+                                            <button onclick="deleteOrder({{ $order->id }})" class="text-red-600 hover:text-red-800 text-xs font-semibold inline-block">
                                                 <i class="fas fa-trash mr-1"></i> Hapus
                                             </button>
                                         </td>
@@ -533,5 +540,67 @@
         
         setTimeout(() => toast.remove(), 3000);
     }
+
+    // View Order Detail
+    async function viewOrderDetail(orderId) {
+        try {
+            const response = await fetch(`{{ url('/admin/orders') }}/${orderId}/detail`);
+            if (!response.ok) {
+                alert('Gagal memuat detail pesanan');
+                return;
+            }
+
+            const html = await response.text();
+            
+            // Create modal container
+            const modal = document.createElement('div');
+            modal.id = 'order-detail-modal';
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4';
+            modal.innerHTML = html;
+            modal.onclick = (e) => {
+                if (e.target === modal) modal.remove();
+            };
+            
+            document.body.appendChild(modal);
+
+            // Add close button functionality
+            modal.querySelector('[data-close-modal]')?.addEventListener('click', () => modal.remove());
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Terjadi kesalahan saat membuka detail pesanan');
+        }
+    }
+
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const canvas = document.getElementById('salesChart');
+    if (!canvas) return;
+
+    const labels = @json($bestSellers->pluck('product.name'));
+    const data = @json($bestSellers->pluck('total_sold'));
+
+    new Chart(canvas, {
+        type: 'doughnut',
+        data: {
+            labels,
+            datasets: [{
+                data,
+                backgroundColor: ['#D97706', '#F59E0B', '#FBBF24', '#FCD34D', '#FEF08A'],
+                borderWidth: 0,
+                hoverOffset: 6,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: '65%',
+            plugins: {
+                legend: { display: false }
+            }
+        }
+    });
+});
+</script>
+
 </x-layout>

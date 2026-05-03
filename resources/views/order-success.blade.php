@@ -23,6 +23,9 @@
             <span class="text-xs font-semibold px-3 py-1 rounded-full
                 @if($order->status === 'waiting_confirmation') bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400
                 @elseif($order->status === 'processing') bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400
+                @elseif($order->status === 'paid') bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400
+                @elseif($order->status === 'completed') bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400
+                @elseif($order->status === 'cancelled') bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400
                 @else bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-400 @endif">
                 {{ $order->status_label }}
             </span>

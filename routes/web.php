@@ -57,17 +57,11 @@ Route::post('/payment/{orderCode}', [CartController::class, 'paymentStore'])->na
 //////////////////////////////////////////////////
 
 Route::get('/orders', function () {
-    return view('orders.index');
+    return view('orders-index');
 })->name('orders.index');
 
-// Update status order (AJAX)
-Route::post('/orders/update-status/{id}', function (Request $request, $id) {
-    $order = Order::findOrFail($id);
-    $order->status = $request->status;
-    $order->save();
-
-    return response()->json(['success' => true]);
-})->middleware('auth')->name('orders.updateStatus');
+Route::get('/track-order', [CartController::class, 'trackOrder'])->name('track.order');
+Route::post('/track-order', [CartController::class, 'searchOrder'])->name('track.search');
 
 //////////////////////////////////////////////////
 // 📦 PRODUCTS & 👤 CUSTOMERS
@@ -113,16 +107,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-Route::delete('/orders/{id}', [OrderController::class, 'destroy'])
-    ->name('orders.delete');
+    Route::delete('/orders/{id}', [OrderController::class, 'destroy'])->name('orders.delete');
     Route::patch('/orders/{id}/update-status', [OrderController::class, 'updateStatus'])->name('orders.updateStatus');
-    Route::post('/orders/update-status/{id}', function (Request $request, $id) {
-        $order = Order::findOrFail($id);
-        $order->status = $request->status;
-        $order->save();
-
-        return response()->json(['success' => true]);
-    })->name('order.updateStatus');
+    Route::get('/admin/orders/{id}/detail', [OrderController::class, 'detail'])->name('orders.detail');
 });
 
 //////////////////////////////////////////////////

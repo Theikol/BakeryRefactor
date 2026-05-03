@@ -67,12 +67,14 @@ class DashboardController extends Controller
     public function updateStatus(Request $request, Order $order)
     {
         $request->validate([
-            'status' => ['required', 'in:pending,paid,completed,cancelled'],
+            'status' => ['required', 'in:pending,processing,waiting_confirmation,paid,completed,cancelled'],
         ]);
 
         // Validasi transisi status yang diizinkan
         $allowed = [
-            'pending'   => ['paid', 'cancelled'],
+            'pending'   => ['paid', 'waiting_confirmation', 'cancelled', 'processing'],
+            'processing'   => ['completed', 'cancelled'],
+            'waiting_confirmation' => ['processing', 'paid', 'cancelled'],
             'paid'      => ['completed', 'cancelled'],
             'completed' => [],
             'cancelled' => [],

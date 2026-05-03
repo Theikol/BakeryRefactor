@@ -53,6 +53,9 @@
                 <button onclick="document.documentElement.classList.toggle('dark')" class="text-gray-500 dark:text-gray-400 hover:text-amber-600 focus:outline-none">
                     <i class="fas fa-moon text-xl"></i>
                 </button>
+                <button onclick="window.location.href='{{ route('track.order') }}'" class="text-gray-500 dark:text-gray-400 hover:text-amber-600 focus:outline-none relative" title="Lacak Pesanan">
+                    <i class="fas fa-location-dot text-xl"></i>
+                </button>
                 <button onclick="window.location.href='{{ route('cart') }}'" class="text-gray-500 dark:text-gray-400 hover:text-amber-600 focus:outline-none relative">
                     <i class="fas fa-shopping-cart text-xl"></i>
                     <span id="cart-count" class="absolute -top-2 -right-2 bg-amber-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center hidden">0</span>
