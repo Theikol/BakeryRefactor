@@ -1,0 +1,159 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "halo", "hai", "hi", "hello", "selamat pagi", "selamat siang", "selamat sore", "selamat malam", "hei", "hay", "assalamualaikum", "permisi", "ola", "yo", "hallo", "helo", "oyy", "hii", "haii", "hi there", "hello there", "greetings", "what's up", "how are you", "good morning", "welcome", "welcome to Lumine Bakery",
+        "selamat datang", "pagi", "siang", "sore", "malam", "hai bro", "halo sist", "hai mbak", "halo mas", "morning", "assalamu alaikum", "waalaikumsalam"
+      ],
+      "responses": ["Halo! Selamat datang di Lumine Bakery. Ada yang bisa saya bantu?", "Hai! Saya siap membantu Anda menemukan roti & kue favorit Anda! 😊", "Selamat datang! Silakan tanyakan produk, harga, atau rekomendasi kami."]
+    },
+    {
+      "tag": "farewell",
+      "patterns": [
+        "bye", "dadah", "sampai jumpa", "selamat tinggal", "terima kasih", "makasih", "thanks", "thank you", "oke deh", "sudah cukup", "keluar", "exit", "quit", "cukup", "ok makasih",
+        "sampai ketemu lagi", "dadah ya", "bye bye", "tks ya", "mksh", "gas", "dah", "selesai", "capek", "lama"
+      ],
+      "responses": ["Terima kasih sudah berkunjung! Sampai jumpa 👋", "Sampai jumpa! Semoga hari Anda menyenangkan 😊", "Terima kasih! Jangan lupa mampir lagi ya 🍰"]
+    },
+    {
+      "tag": "help",
+      "patterns": [
+        "bantuan", "help", "bisa apa", "bisa bantu apa", "fitur", "menu bantuan", "apa yang bisa kamu lakukan", "cara pakai", "panduan", "petunjuk", "gimana caranya", "cara", "bisa ngapain aja",
+        "command apa", "menu", "fitur bot", "bisa apa aja", "tolong bantu", "help me", "panduan lengkap"
+      ],
+      "responses": ["__QUERY__"]
+    },
+    {
+      "tag": "list_products",
+      "patterns": [
+        "tampilkan semua produk", "daftar produk", "list produk", "semua produk", "produk apa saja", "ada apa saja", "menu", "katalog", "apa yang dijual", "produk yang tersedia", "tampilkan menu", "lihat semua", "show all", "semua menu", "ada produk apa", "lihat produk",
+        "produk lengkap", "full list", "etalase", "show products", "daftar menu"
+      ],
+      "responses": ["__QUERY__"]
+    },
+    {
+      "tag": "best_seller",
+      "patterns": [
+        "produk terlaris", "paling laris", "paling banyak dibeli", "best seller", "bestseller", "paling laku", "terlaris", "paling enak", "paling favorit", "rekomendasi", "rekomen", "sering dibeli", "banyak yang beli", "populer", "yang paling enak", "enak apa", "rekomendasiin dong", "top produk",
+        "favorit pelanggan", "hits", "trending", "yang lagi rame", "paling top"
+      ],
+      "responses": ["__QUERY__"]
+    },
+    {
+      "tag": "cheapest",
+      "patterns": [
+        "produk termurah", "paling murah", "harga terendah", "harga paling rendah", "termurah", "murah", "paling murah berapa", "yang murah apa", "harga murah", "budget", "terjangkau", "ekonomis", "hemat",
+        "murah meriah", "wallet friendly", "buat kantong tipis", "harga dibawah 10rb"
+      ],
+      "responses": ["__QUERY__"]
+    },
+    {
+      "tag": "most_expensive",
+      "patterns": [
+        "produk termahal", "paling mahal", "harga tertinggi", "harga paling tinggi", "termahal", "premium", "produk premium", "dari mahal ke murah", "yang mahal apa", "produk eksklusif", "paling eksklusif",
+        "luxury", "high end", "kelas atas"
+      ],
+      "responses": ["__QUERY__"]
+    },
+    {
+      "tag": "best_rating",
+      "patterns": [
+        "rating terbaik", "rating tertinggi", "paling bagus ratingnya", "nilai tertinggi", "bintang tertinggi", "rating terbagus", "produk terbaik", "kualitas terbaik", "yang paling bagus", "produk bagus", "bagus apa", "mana yang bagus", "rating tinggi",
+        "review bagus", "bintang 5", "highly rated"
+      ],
+      "responses": ["__QUERY__"]
+    },
+    {
+      "tag": "category_search",
+      "patterns": [
+        "kategori", "jenis", "tipe produk", "produk donat", "produk pastry", "produk roti", "produk kue", "donat apa saja", "pastry apa saja", "roti apa saja", "ada donat", "ada pastry", "ada roti manis", "roti tawar", "roti gurih", "lainnya",
+        "tampilkan kue", "roti manis apa", "pastry ada apa", "donat semua"
+      ],
+      "responses": ["__QUERY__"]
+    },
+    {
+      "tag": "price_range",
+      "patterns": [
+        "harga antara", "harga sekitar", "harga kisaran", "kisaran harga", "harganya berapa", "berapa harganya", "harga produk", "cek harga", "di bawah", "di atas", "kurang dari", "lebih dari", "harga 15000",
+        "budget 20-30rb", "max 25k", "min 15rb", "range 10k-50k"
+      ],
+      "responses": ["__QUERY__"]
+    },
+    {
+      "tag": "product_detail",
+      "patterns": [
+        "detail produk", "info produk", "informasi produk", "tentang produk", "deskripsi produk", "ceritakan tentang", "jelaskan", "produk ini apa", "apa itu", "bahan", "terbuat dari apa",
+        "spesifikasi", "ingredients", "deskripsi lengkap", "tell me about"
+      ],
+      "responses": ["__QUERY__"]
+    },
+    {
+      "tag": "stock_check",
+      "patterns": [
+        "stok", "masih ada", "tersedia", "ready", "ready stock", "in stock", "ada ga", "ada tidak", "masih jual", "produk aktif", "produk tersedia",
+        "habis ga", "sold out", "stoknya berapa", "ada stok"
+      ],
+      "responses": ["__QUERY__"]
+    },
+    {
+      "tag": "store_hours",
+      "patterns": ["jam operasional","buka jam berapa","tutup jam berapa","hari ini buka","jam kerja","jadwal buka","sampai jam berapa","kapan buka","buka hari apa aja","masih buka"],
+      "responses": ["Toko kami buka setiap hari mulai pukul 08:00 hingga 21:00 WIB. Ada yang ingin Anda pesan hari ini?"]
+    },
+    {
+      "tag": "location",
+      "patterns": ["lokasi","alamat","dimana lokasinya","lokasi toko","alamatnya dimana","tempatnya dimana","cabang","bisa dine in","peta","google maps"],
+      "responses": ["Lumine Bakery berlokasi di Jl. Contoh Alamat No. 123. Anda bisa menemukan titik lokasi kami dengan mencari 'Lumine Bakery' di Google Maps!"]
+    },
+    {
+      "tag": "how_to_order",
+      "patterns": ["cara pesan","gimana cara order","mau beli","pesannya gimana","order online","cara beli","bisa delivery","bisa dikirim","gofood","grabfood"],
+      "responses": ["Untuk pemesanan, Anda bisa langsung memberitahu saya pesanan Anda di chat ini, atau memesan via GoFood/GrabFood dengan mencari 'Lumine Bakery'."]
+    },
+    {
+      "tag": "payment_methods",
+      "patterns": ["bayar pakai apa","metode pembayaran","bisa qris","bisa transfer","terima cash","cara bayar","pembayarannya gimana","bayar di tempat","cod"],
+      "responses": ["Kami menerima pembayaran melalui QRIS, Transfer Bank (BCA/Mandiri), e-Wallet (GoPay, OVO, Dana), dan uang tunai jika Anda datang langsung ke toko."]
+    },
+    {
+      "tag": "custom_orders",
+      "patterns": ["kue ulang tahun","custom kue","kue ultah","bisa request desain","pesanan khusus","katering","pesan banyak","snack box","bisa nulis nama"],
+      "responses": ["Tentu! Kami melayani pemesanan kue custom untuk ulang tahun atau acara spesial. Harap lakukan pemesanan maksimal H-2. Anda ingin melihat katalog kue ulang tahun kami?"]  
+    },
+    {
+      "tag": "dietary_halal",
+      "patterns": ["halal","sertifikat halal","mengandung alkohol","pakai rum","babi","vegetarian","bebas gluten","gluten free","alergi"],
+      "responses": ["Semua produk Lumine Bakery 100% Halal dan bebas dari alkohol atau rum. Kami menggunakan bahan-bahan berkualitas premium."]
+    },
+    {
+      "tag": "recommendations",
+      "patterns": [
+        "rekomendasi", "suggest", "anjuran", "saran", "rekomendasikan", "pilihkan", "mana yang bagus", "cocok buat", "untuk pemula", "untuk anak", "untuk diet", "healthy", "low kalori", "pair dengan apa", "cocok dipadukan",
+        "rekomendasi murah", "terbaik untuk sarapan", "snack kantor", "pesta anak", "kue ultah", "birthday cake", "gift idea"
+      ],
+      "responses": ["__QUERY__"]
+    },
+    {
+      "tag": "new_arrivals",
+      "patterns": [
+        "produk baru", "new arrival", "terbaru", "baru masuk", "fresh", "update stok", "yang baru", "latest", "release baru", "arrivals"
+      ],
+      "responses": ["__QUERY__"]
+    },
+    {
+      "tag": "product_pairing",
+      "patterns": [
+        "cocok sama apa", "pairing", "padukan dengan", "kombinasi", "bundle", "set menu", "makan bareng", "dipadukan", "match dengan"
+      ],
+      "responses": ["__QUERY__"]
+    },
+    {
+      "tag": "promotions",
+      "patterns": [
+        "promo", "diskon", "promo hari ini", "voucher", "potongan harga", "promo menarik", "buy 1 get 1", "flash sale", "diskon apa", "deal", "special offer", "happy hour"
+      ],
+      "responses": ["__QUERY__"]
+    }
+  ]
+}
