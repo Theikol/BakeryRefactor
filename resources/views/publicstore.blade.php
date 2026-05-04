@@ -1,3 +1,43 @@
+<!-- CHATBOT BUTTON -->
+<button onclick="chatbotCs()"
+    class="fixed bottom-5 right-5 z-40 bg-amber-600 hover:bg-amber-700 text-white p-4 rounded-full shadow-lg transition">
+    <i class="fas fa-comments"></i>
+</button>
+
+<!-- CHATBOT MODAL -->
+<div id="chatbot" class="hidden fixed inset-0 z-50">
+    <div class="absolute inset-0 bg-black/50" onclick="chatbotCs()"></div>
+
+    <div class="absolute bottom-5 right-5 w-full max-w-sm h-[520px] bg-white dark:bg-gray-900 rounded-2xl shadow-2xl overflow-hidden flex flex-col">
+
+        <!-- Header -->
+        <div class="flex items-center justify-between px-4 py-3 border-b border-gray-200 dark:border-gray-700">
+            <div>
+                <h3 class="font-semibold text-gray-800 dark:text-white">Luma Dumb :)</h3>
+                <p class="text-xs text-gray-500 dark:text-gray-400">Tanya produk, harga, atau stok</p>
+            </div>
+
+            <button onclick="chatbotCs()" class="text-gray-500 hover:text-red-500 text-xl leading-none">
+                ✕
+            </button>
+        </div>
+
+        <!-- Chat body -->
+        <div id="chat-body" class="flex-1 p-3 overflow-y-auto space-y-3 bg-gray-50 dark:bg-gray-950"></div>
+
+        <!-- Input -->
+        <div class="p-3 border-t border-gray-200 dark:border-gray-700 flex gap-2 bg-white dark:bg-gray-900">
+            <input id="chat-input" type="text"
+                class="flex-1 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500"
+                placeholder="Ketik pesan..." />
+
+            <button onclick="handleSendChat()"
+                class="bg-amber-600 hover:bg-amber-700 text-white px-4 rounded-lg text-sm font-medium">
+                Kirim
+            </button>
+        </div>
+    </div>
+</div>
 <x-layout>
 
     {{-- ======================== HERO ======================== --}}

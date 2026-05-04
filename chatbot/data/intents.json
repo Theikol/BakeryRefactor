@@ -17,6 +17,13 @@
       "responses": ["Terima kasih sudah berkunjung! Sampai jumpa 👋", "Sampai jumpa! Semoga hari Anda menyenangkan 😊", "Terima kasih! Jangan lupa mampir lagi ya 🍰"]
     },
     {
+      "tag": "thanks",
+      "patterns": [
+        "terima kasih", "makasih", "thanks", "thank you", "tks", "mksh", "appreciate", "thx"
+      ],
+      "responses": ["Sama-sama! Ada lagi yang bisa dibantu? 😊", "Dengan senang hati! 🙌"]
+    },
+    {
       "tag": "help",
       "patterns": [
         "bantuan", "help", "bisa apa", "bisa bantu apa", "fitur", "menu bantuan", "apa yang bisa kamu lakukan", "cara pakai", "panduan", "petunjuk", "gimana caranya", "cara", "bisa ngapain aja",
@@ -35,7 +42,7 @@
     {
       "tag": "best_seller",
       "patterns": [
-        "produk terlaris", "paling laris", "paling banyak dibeli", "best seller", "bestseller", "paling laku", "terlaris", "paling enak", "paling favorit", "rekomendasi", "rekomen", "sering dibeli", "banyak yang beli", "populer", "yang paling enak", "enak apa", "rekomendasiin dong", "top produk",
+        "produk terlaris", "paling laris", "paling banyak dibeli", "best seller", "bestseller", "paling laku", "terlaris", "paling enak", "paling favorit", "sering dibeli", "banyak yang beli", "populer", "yang paling enak", "enak apa", "top produk",
         "favorit pelanggan", "hits", "trending", "yang lagi rame", "paling top"
       ],
       "responses": ["__QUERY__"]
@@ -83,7 +90,7 @@
     {
       "tag": "product_detail",
       "patterns": [
-        "detail produk", "info produk", "informasi produk", "tentang produk", "deskripsi produk", "ceritakan tentang", "jelaskan", "produk ini apa", "apa itu", "bahan", "terbuat dari apa",
+        "detail produk", "info produk", "informasi produk", "tentang produk", "deskripsi produk", "ceritakan tentang", "bahan", "terbuat dari apa",
         "spesifikasi", "ingredients", "deskripsi lengkap", "tell me about"
       ],
       "responses": ["__QUERY__"]

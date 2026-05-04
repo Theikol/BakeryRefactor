@@ -13,11 +13,15 @@ use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ChatbotController;
 
 // Models
 use App\Models\Order;
 use App\Models\OrderItem;
 
+//Chatbot
+
+Route::post('/chatbot', [ChatbotController::class, 'handle'])->name('chatbot');
 //////////////////////////////////////////////////
 // 🏪 STORE
 //////////////////////////////////////////////////
